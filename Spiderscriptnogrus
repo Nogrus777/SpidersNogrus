@@ -1,0 +1,100 @@
+local OrionLib = loadstring(game:HttpGet('https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/Mobile%20Friendly%20Orion'))()
+
+local Player = game.Players.LocalPlayer
+local Window = OrionLib:MakeWindow({
+    Name = "Sistema de key",
+    HidePremium = false,
+    SaveConfig = true,
+    ConfigFolder = "OrionTest",
+    IntroText = "Loading Script..."
+})
+
+-- Chave Correta
+getgenv().Key = "grw076eiwy7"
+getgenv().KeyInput = ""
+
+-- Função para iniciar o script principal
+function RunMainScript()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Nogrus777/SpidersNogrus/main/output-dSiI.txt"))()
+end
+
+-- Criação da Aba de Autenticação
+local Tab = Window:MakeTab({
+    Name = "Autenticação",
+    Icon = "rbxassetid://4483345998",
+    PremiumOnly = false
+})
+
+-- Caixa de Texto para Inserir a Chave
+Tab:AddTextbox({
+    Name = "Chave",
+    Default = "",
+    TextDisappear = true,
+    Callback = function(Value)
+        getgenv().KeyInput = Value
+    end
+})
+
+-- Botão para Verificar a Chave
+Tab:AddButton({
+    Name = "Verificar Chave",
+    Callback = function()
+        if getgenv().KeyInput == "" then
+            OrionLib:MakeNotification({
+                Name = "Erro",
+                Content = "Por favor, insira uma chave.",
+                Image = "rbxassetid://4483345998",
+                Time = 5
+            })
+            print("Chave não inserida")
+            return
+        end
+        
+        OrionLib:MakeNotification({
+            Name = "Verificando Chave",
+            Content = "Verificando a chave inserida...",
+            Image = "rbxassetid://4483345998",
+            Time = 5
+        })
+        
+        wait(2)
+        
+        if getgenv().KeyInput == getgenv().Key then
+            OrionLib:MakeNotification({
+                Name = "Chave Correta!",
+                Content = "A chave inserida está correta.",
+                Image = "rbxassetid://4483345998",
+                Time = 5
+            })
+            print("Chave Correta")
+            wait(1)
+            OrionLib:Destroy()
+            wait(0.3)
+            RunMainScript()
+        else
+            OrionLib:MakeNotification({
+                Name = "Chave Incorreta!",
+                Content = "A chave inserida está incorreta.",
+                Image = "rbxassetid://4483345998",
+                Time = 5
+            })
+            print("Chave Incorreta")
+        end
+    end
+})
+
+-- Botão para Copiar a Chave
+Tab:AddButton({
+    Name = "Copiar Chave",
+    Callback = function()
+        setclipboard("https://fir3.net/oFFfRHvUr")
+        OrionLib:MakeNotification({
+            Name = "Chave Copiada",
+            Content = "O link da chave foi copiado para a área de transferência.",
+            Image = "rbxassetid://4483345998",
+            Time = 5
+        })
+    end
+})
+
+OrionLib:Init()
