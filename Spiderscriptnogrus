@@ -15,7 +15,7 @@ getgenv().KeyInput = ""
 
 -- Função para iniciar o script principal
 function RunMainScript()
-  loadstring(game:HttpGet("https://raw.githubusercontent.com/Nogrus777/SpidersNogrus/main/scriptnogrusspider.txt"))() 
+  loadstring(game:HttpGet("https://raw.githubusercontent.com/Nogrus777/SpidersNogrus/main/nogrusspiderscript.txt"))() 
 end
 
 -- Criação da Aba de Autenticação
