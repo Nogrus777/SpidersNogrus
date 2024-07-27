@@ -87,7 +87,7 @@ Tab:AddButton({
 Tab:AddButton({
     Name = "Copiar Chave",
     Callback = function()
-        setclipboard("https://fir3.net/oFFfRHvUr")
+        setclipboard("https://fir3.net/OUHPpc0p")
         OrionLib:MakeNotification({
             Name = "Chave Copiada",
             Content = "O link da chave foi copiado para a área de transferência.",
